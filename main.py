@@ -5,9 +5,15 @@ bot = Bot(token=  '6968625615:AAF-42er31AnyT3XSoP7HZUGmlkvSmPdIcw')
 dp = Dispatcher(bot)
 
 keyboard = ReplyKeyboardMarkup(resize_keyboard= True)
-button  = KeyboardButton('Клик')
+button = KeyboardButton('Клик')
 button1 = KeyboardButton('Клик-клик')
 keyboard.add(button,button1)
+
+keyboard_2 = ReplyKeyboardMarkup(resize_keyboard= True)
+button_3 = KeyboardButton('Клик')
+button_4 = KeyboardButton('Вернуться на первую клавиатуру')
+keyboard_2.add(button_3,button_4)
+
 
 keyboard_Inline = InlineKeyboardMarkup(row_width= 2)
 button_Inline = InlineKeyboardButton('Покажи гугл браузер', url='https://www.google.com/')
@@ -28,7 +34,7 @@ async def start(message: types.Message):
 
 @dp.message_handler(lambda message: message.text == 'Клик')
 async def button_click(message: types.Message):
-    await message.answer('Ты кликнул!!', reply_markup= keyboard_Inline)
+    await message.answer('Браузеры', reply_markup= keyboard_Inline)
 
 @dp.message_handler(lambda message: message.text == 'Клик-клик')
 async def button1_click(message: types.Message):
